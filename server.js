@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var multer  = require('multer');
+var vm = require("vm");
 
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
@@ -15,8 +16,18 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 app.get('/', function (req, res) {
-	console.log( req );
+	fs.readdir('uploads/', function (err, data) {
+		if (err) throw err;
+		res.json(data);
+	});
 })
+
+app.get('/execute/:script', function(req, res){
+	console.log('script:', req.params.script);
+	var path = 'uploads/' + req.params.script + '.js';
+	var data = fs.readFileSync(path);
+	vm.runInThisContext(data, path);
+});
 
 app.post('/upload', upload.any(), function (req, res) {
 	console.log( req );
