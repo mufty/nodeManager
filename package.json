@@ -1,6 +1,7 @@
 {
 	"name": "nodeManager",
 	"dependencies": {
-		"express": "4.13.4"
+		"express": "4.13.4",
+		"multer": "1.1.0"
 	}
 }
