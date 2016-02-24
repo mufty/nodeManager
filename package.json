@@ -1,0 +1,6 @@
+{
+	"name": "nodeManager",
+	"dependencies": {
+		"express": "4.13.4"
+	}
+}
