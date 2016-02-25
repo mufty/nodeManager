@@ -11,9 +11,13 @@ var storage = multer.diskStorage({
 	filename: function (req, file, cb) {
 		cb(null, file.originalname);
 	}
-})
+});
 
-var upload = multer({ storage: storage })
+var upload = multer({ storage: storage });
+
+module.exports = function() {  
+	
+};
 
 app.get('/', function (req, res) {
 	fs.readdir('uploads/', function (err, data) {
@@ -41,3 +45,11 @@ var server = app.listen(8081, function () {
   console.log("Example app listening at http://%s:%s", host, port)
 
 })
+
+//test
+var yams = require("./yams");
+yams.addListener("test", function(e){
+	console.log(e);
+});
+
+yams.triggerEvent("test");

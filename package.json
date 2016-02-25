@@ -1,4 +1,13 @@
 {
+	"name": "Nodejs manager",
+	"version": "0.0.0",
+	"description": "Manage node scripts remotly",
+	"author": "Michal Gubriansky <gubriansky@sernato.sk> (http://sernato.sk)",
+	"main": "server.js",
+	"repository": {
+	    "type": "git",
+	    "url": "https://github.com/mufty/nodeManager.git"
+	},
 	"name": "nodeManager",
 	"dependencies": {
 		"express": "4.13.4",
